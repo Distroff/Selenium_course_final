@@ -17,11 +17,13 @@ class ProductPage(BasePage):
             "Message about adding is not presented")
         # Затем получаем текст элементов для проверки
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
+        print(product_name)
         message = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
+        print(message)
         # Проверяем, что название товара присутствует в сообщении о добавлении
         # Это можно было бы сделать с помощью split() и сравнения строк,
         # Но не вижу необходимости усложнять код
-        assert product_name in message, "No product name in the message"
+        assert product_name == message, "No product name in the message"
 
     def should_be_message_basket_total(self):
         # Сначала проверяем, что элементы присутствуют на странице
@@ -31,6 +33,8 @@ class ProductPage(BasePage):
             "Product price is not presented")
         # Затем получаем текст элементов для проверки
         message_basket_total = self.browser.find_element(*ProductPageLocators.MESSAGE_BASKET_TOTAL).text
+        print(message_basket_total)
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
+        print(product_price)
         # Проверяем, что цена товара присутствует в сообщении со стоимостью корзины
         assert product_price in message_basket_total, "No product price in the message"
