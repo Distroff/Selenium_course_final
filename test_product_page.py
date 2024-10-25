@@ -26,3 +26,25 @@ def test_offers(browser, promo_offer):
     page.should_be_message_about_adding()
     page.should_be_message_basket_total()
     time.sleep(2)
+
+
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+    page = ProductPage(browser, link)
+    page.open()  # Открываем страницу товара
+    page.press_button_add_to_basket()  # Добавляем товар в корзину
+    page.should_not_be_success_message()  # Проверяем, что нет сообщения об успехе с помощью is_not_element_present
+
+
+def test_guest_cant_see_success_message(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+    page = ProductPage(browser, link)  # Открываем страницу товара
+    page.should_not_be_success_message()  # Проверяем, что нет сообщения об успехе с  помощью is_not_element_present
+
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+    page = ProductPage(browser, link)
+    page.open()  # Открываем страницу товара
+    page.press_button_add_to_basket()  # Добавляем товар в корзину
+    page.should_is_disappeared()  # Проверяем, что нет сообщения об успехе с помощью is_disappeared
