@@ -20,9 +20,6 @@ class ProductPage(BasePage):
         print(product_name)
         message = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
         print(message)
-        # Проверяем, что название товара присутствует в сообщении о добавлении
-        # Это можно было бы сделать с помощью split() и сравнения строк,
-        # Но не вижу необходимости усложнять код
         assert product_name == message, "No product name in the message"
 
     def should_be_message_basket_total(self):
