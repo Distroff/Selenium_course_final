@@ -1,6 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from .locators import BasePageLocators
 import math
 
 
@@ -13,6 +14,13 @@ class BasePage:
 
     def open(self):
         self.browser.get(self.url)
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def is_element_present(self, how, what):
         try:
@@ -51,3 +59,17 @@ class BasePage:
             return False
 
         return True
+
+    def guest_click_button_see_basket(self):
+        '''
+        Переход в корзину с любой страницы
+        :return: None
+        '''
+        basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        basket_link.click()
+
+
+
+
+
+
