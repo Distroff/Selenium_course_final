@@ -5,7 +5,6 @@ from .locators import BasePageLocators
 import math
 
 
-
 class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -61,13 +60,12 @@ class BasePage:
         return True
 
     def guest_click_button_see_basket(self):
-        '''
+        """
         Переход в корзину с любой страницы
         :return: None
-        '''
+        """
         basket_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         basket_link.click()
-
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \

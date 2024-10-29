@@ -7,6 +7,7 @@ class BasePageLocators:
     BASKET_LINK = (By.CSS_SELECTOR, '#default > header > div.page_inner > div > div.basket-mini.pull-right.hidden-xs > span > a')
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
+
 class MainPageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, '#login_link')
 
@@ -19,6 +20,7 @@ class LoginPageLocators:
     REGISTER_FORM_CONFIRM_PASSWORD = (By.CSS_SELECTOR, '#id_registration-password2')
     REGISTER_FORM_REGISTER_BUTTON = (By.CSS_SELECTOR, "button[name='registration_submit']")
     REGISTER_SUCCESS_TEXT = (By.CSS_SELECTOR, '.alert-success')
+
 
 class ProductPageLocators:
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, "button.btn-add-to-basket")
