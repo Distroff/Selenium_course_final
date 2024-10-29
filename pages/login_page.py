@@ -27,4 +27,4 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.REGISTER_FORM_REGISTER_BUTTON).click()
 
     def is_registered(self):
-        assert self.is_element_present(*LoginPageLocators.REGISTER_SUCCESS_TEXT), "Register was faild"
+        assert self.is_element_present(*LoginPageLocators.REGISTER_SUCCESS_TEXT), "Register was failed"

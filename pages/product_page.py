@@ -30,9 +30,7 @@ class ProductPage(BasePage):
             "Product price is not presented")
         # Затем получаем текст элементов для проверки
         message_basket_total = self.browser.find_element(*ProductPageLocators.MESSAGE_BASKET_TOTAL).text
-        print(message_basket_total)
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
-        print(product_price)
         # Проверяем, что цена товара присутствует в сообщении со стоимостью корзины
         assert product_price in message_basket_total, "No product price in the message"
 
