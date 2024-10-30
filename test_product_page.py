@@ -93,3 +93,4 @@ class TestUserAddToBasketFromProductPage:
         page.solve_quiz_and_get_code()
         page.should_be_message_about_adding()
         page.should_be_message_basket_total()
+
